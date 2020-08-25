@@ -1,0 +1,16 @@
+<label class="shopSearchLabel">{{ label }}</label>
+
+<div class="ShopSearchWrap" [ngClass]="{advSearchEnabled: advSearchEnabled}">
+    <kendo-combobox #shopSearch class="basic-search" 
+        [data]="listOfShops" [textField]="'text'" [valueField]="'value'" 
+        [value]="shop" 
+        (valueChange)="onChange($event)"
+        (selectionChange)="onSelect($event)" 
+        (filterChange)="handleFilter($event)" 
+        [suggest]="true" 
+        [filterable]="true">
+        <ng-template kendoAutoCompleteItemTemplate let-dataItem>
+            <span>{{ dataItem.text }} : {{ dataItem.value }}</span>
+        </ng-template>
+    </kendo-combobox>
+</div>
